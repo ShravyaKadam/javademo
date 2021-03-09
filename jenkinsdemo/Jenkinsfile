@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+    stages {
+        stage('Compile') {
+            steps{
+                bat 'echo hello'
+            }
+        }
+    }
+    post {
+        failure {
+            mail bcc: '', body: "$BUILD_NUMBER", subject: "$JOB_NAME", to: 'kadamshravya23@gmail.com'
+        }
+        success {
+            mail bcc: '', body: "$BUILD_NUMBER", subject: "$JOB_NAME", to: 'kadamshravya23@gmail.com'
+        }      
+    }
+}
