@@ -9,10 +9,10 @@ pipeline {
     }
     post {
         failure {
-            mail bcc: '', body: "$BUILD_NUMBER", subject: "$JOB_NAME", to: 'kadamshravya23@gmail.com'
+            mail bcc: '', body: "$BUILD_NUMBER $BUILD_URL $currentBuild.currentResult", subject: "$JOB_NAME", to: 'kadamshravya23@gmail.com'
         }
         success {
-            mail bcc: '', body: "$BUILD_NUMBER", subject: "$JOB_NAME", to: 'kadamshravya23@gmail.com'
+            mail bcc: '', body: "$BUILD_NUMBER $BUILD_URL $currentBuild.currentResult", subject: "$JOB_NAME", to: 'kadamshravya23@gmail.com'
         }      
     }
 }
